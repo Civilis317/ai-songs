@@ -1,0 +1,19 @@
+spring:
+  ai:
+    openai:
+      api-key: ${OPEN_AI_API_KEY}
+
+server:
+  servlet:
+    context-path: /internal/songs
+  error:
+    include-message: always
+  tomcat:
+    remoteip:
+      remote-ip-header: x-forwarded-for
+      protocol-header: x-forwarded-proto
+
+logging:
+  level:
+    org.springframework: ${LOGLEVEL_SPRING:INFO}
+    net.playground.ai.songs: ${LOGLEVEL_APPLICATION:DEBUG}
